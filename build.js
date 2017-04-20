@@ -13,7 +13,7 @@ del(dir)
   .then(() => new Promise((res, rej) => {
     webpack(config, (err, stats) => {
       if (err || stats.hasErrors()) {
-        rej(err || new Error('Error in build.'));
+        rej(err || new Error(`Error in build. ${stats.toJson().errors}`));
       }
       res();
     });

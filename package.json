@@ -11,7 +11,7 @@
     "del": "^2.2.2",
     "html-minifier": "^3.4.3",
     "promisify-node": "^0.4.0",
-    "thea": "^0.0.6"
+    "thea": "^0.0.7"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.7",

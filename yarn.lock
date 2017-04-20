@@ -4602,9 +4602,9 @@ text-table@~0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
 
-thea@^0.0.6:
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/thea/-/thea-0.0.6.tgz#0b442e0872e7de7af0e12d70a0cb940267a039ba"
+thea@^0.0.7:
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/thea/-/thea-0.0.7.tgz#c0359ba1e47e80988a53aab7519e8807d75ea590"
   dependencies:
     escape-html "^1.0.3"
 
