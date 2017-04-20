@@ -1,5 +1,5 @@
 let lastId = 0;
-const uid = () => ++lastId; // eslint-disable-line
+const uid = () => '' + ++lastId; // eslint-disable-line
 
 export const stateToAttrs = (_, state) => state;
 export const initialState = { items: [] };
@@ -8,8 +8,8 @@ export function makeStateUpdaters(update) {
   const swapItems = n => update((state) => {
     const oldItems = state.items;
     const items = oldItems.slice();
-    items[n] = oldItems[n + 1];
-    items[n + 1] = oldItems[n];
+    items[n - 1] = oldItems[n];
+    items[n] = oldItems[n - 1];
     return Object.assign({}, state, { items });
   });
   const updateItem = (n, value) => update(

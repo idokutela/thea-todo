@@ -3,6 +3,7 @@ import view from 'thea';
 import Input from '../TodoInput';
 import Item from '../Item';
 import TodoZero from '../TodoZero';
+import SwapButton from '../SwapButton';
 import styles from './style.css';
 
 /* eslint-disable no-undef */
@@ -16,11 +17,9 @@ export const render = ({
   markAllAsDone = () => {},
   deleteAll = () => {},
 }) => {
-  const makeItem = (item, index) => Object.assign({}, item, {
-    showSwitch: index !== items.length - 1,
+  const makeItemAttrs = (item, index) => Object.assign({}, item, {
     toggleDone: () => toggleDone(index),
     updateItem: value => updateItem(index, value),
-    swapItems: () => swapItems(index),
     deleteItem: () => deleteItem(index),
   });
 
@@ -30,15 +29,21 @@ export const render = ({
     deleteAll,
   };
 
+  const listItems = items.slice().map(makeItemAttrs)
+       .map(item => <Item {...item} key={item.id} />)
+       .reduce((r, item, i) => {
+         (i !== 0) && r.push(<SwapButton doSwap={() => swapItems(i)} key={`swap-${i}`} />);
+         r.push(item);
+         return r;
+       }, []);
+
   return (
     <div class={styles.container}>
       <Input {...inputHandlers} noItems={!items.length} />
       <branch>
         <if test={items.length}>
           <ul class={styles.todos}>
-            <each of={items.map(makeItem)} keyedBy={item => item.id}>
-              <Item {...item} />
-            </each>
+            { listItems }
           </ul>
         </if>
         <default>

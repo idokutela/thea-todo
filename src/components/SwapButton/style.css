@@ -1,0 +1,30 @@
+.container {
+  position: relative;
+  height: 0;
+}
+.button {
+  color: #888;
+}
+.swapButton {
+  composes: button;
+  position: absolute;
+  border-radius: 1000px;
+  border: 1px solid #eee;
+
+  background: #fefefe;
+
+  top: calc(100% - 18px);
+  left: calc(50% - 18px);
+  width: 36px;
+  height: 36px;
+  z-index: 10;
+
+}
+
+.swapButtonInt {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

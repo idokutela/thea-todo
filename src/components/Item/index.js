@@ -2,7 +2,6 @@ import view from 'thea';
 import styles from './style.css';
 import Delete from '../Icons/Delete';
 import Done from '../Icons/Done';
-import SwapVert from '../Icons/SwapVert';
 import IconButton from '../IconButton';
 import Input from '../Input';
 
@@ -11,8 +10,6 @@ export const render = ({
   toggleDone = () => {},
   deleteItem = () => {},
   updateItem = () => {},
-  swapItems = () => {},
-  showSwitch,
   done }) =>
 (
   <li class={styles.container}>
@@ -29,15 +26,6 @@ export const render = ({
     >
       <Delete />
     </IconButton>
-    <branch>
-      <if test={showSwitch}>
-        <span class={styles.updownButton}>
-          <IconButton onclick={swapItems}>
-            <SwapVert />
-          </IconButton>
-        </span>
-      </if>
-    </branch>
   </li>
 );
 
