@@ -36,7 +36,7 @@ export function makeStateUpdaters(update) {
   );
   const addItem = value => update(
     (state) => {
-      const items = state.items.concat({ value, id: uid() });
+      const items = [{ value, id: uid() }].concat(state.items);
       return Object.assign({}, state, { items });
     },
   );
