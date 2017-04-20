@@ -1,39 +1,18 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+// file : /webpack.config.js
 
-module.exports = {
-  entry: './src/index.js',
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'index.js',
-  },
-  module: {
-    rules: [{
-      test: /\.js$/,
-      exclude: /(node_modules|bower_components)/,
-      use: {
-        loader: 'babel-loader',
-        options: {
-          plugins: ['transform-thea-jsx'],
-          presets: ['env'],
-        },
-      },
-    }, {
-      test: /\.css$/,
-      use: ExtractTextPlugin.extract({
-        loader: 'css-loader?importLoaders=1,modules=true!postcss-loader',
-      }),
-    }],
-  },
-  plugins: [
-    new HtmlWebpackPlugin({ template: 'src/index.html' }),
-    new ExtractTextPlugin('[name].bundle.css'),
-  ],
-  resolve: {
-    modules: [
-      'node_modules',
-      path.resolve(__dirname, 'src'),
-    ],
-  },
-};
+const WebpackConfig = require('webpack-config').default;
+
+const TARGET = process.env.npm_lifecycle_event;
+
+let webpackConfig;
+
+switch (TARGET) {
+  case 'watch':
+    webpackConfig = './webpack.dev.config.js';
+    break;
+  default:
+    webpackConfig = './webpack.production.config.js';
+    break;
+}
+
+module.exports = new WebpackConfig().extend(webpackConfig);

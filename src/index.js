@@ -1,8 +1,10 @@
-import view from 'thea';
-import TodoWidget from 'components/TodoWidget';
-
+import 'thea/types/dom/domKnowledge'; // tempoarary cludge
+import mountOnNode from 'components/TodoWidget';
 import './style.css';
 
-// todoContainer is in fact in the global namespace, but better be explicit
-const todoContainer = document.getElementById('todoContainer');
-TodoWidget(todoContainer);
+export { TodoWidget as default } from 'components/TodoWidget';
+
+if (typeof document !== 'undefined') {
+  console.log('Mounting');
+  mountOnNode(document.getElementById('todoContainer'));
+}

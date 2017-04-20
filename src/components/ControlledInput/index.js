@@ -13,6 +13,7 @@ function render(attrs, context) {
     e.preventDefault();
   };
   theAttrs.ref = (ref) => {
+    if (!ref) return;
     if (attrs.ref) {
       attrs.ref(ref);
     }
