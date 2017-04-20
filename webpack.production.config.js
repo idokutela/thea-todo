@@ -13,7 +13,7 @@ module.exports = new WebpackConfig()
   .extend(base)
   .merge({
     output: {
-      path: path.resolve(__dirname, 'doc'),
+      path: path.resolve(__dirname, 'docs'),
       filename: 'app.js',
       library: 'App',
       libraryTarget: 'umd',

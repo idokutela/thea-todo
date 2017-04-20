@@ -7,7 +7,7 @@ const config = require('./webpack.config.js');
 
 const writePage = require('./build/writePage');
 
-const dir = path.join(__dirname, 'doc');
+const dir = path.join(__dirname, 'docs');
 
 del(dir)
   .then(() => new Promise((res, rej) => {
