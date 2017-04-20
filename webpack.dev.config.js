@@ -8,5 +8,5 @@ const base = './webpack.base.config.js';
 module.exports = new WebpackConfig()
   .extend(base)
   .merge({
-    plugins: [new HtmlWebpackPlugin({ template: 'src/index-dev.html' })],
+    plugins: [new HtmlWebpackPlugin({ template: 'dev/index.html' })],
   });
