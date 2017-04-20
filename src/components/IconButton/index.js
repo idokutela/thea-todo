@@ -3,7 +3,6 @@ import classnames from 'classnames';
 
 import styles from './style.css';
 
-
 export default view((attrs) => {
   const theAttrs = Object.assign({}, attrs);
   const { label, children, class: classes } = theAttrs;

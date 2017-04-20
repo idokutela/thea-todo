@@ -13,9 +13,9 @@ to create its first render.
 
 There are three yarn commands defined:
 
- - build: builds the page,
- - watch: fires up a live dev server,
- - test: runs all unit tests.
+ - `build`: builds the page,
+ - `watch`: fires up a live dev server,
+ - `test`: runs all unit tests.
 
 The folders are organised as follows.
 
@@ -44,10 +44,10 @@ into a stateful one. See the local readme for more information.
 Contains only one file (and the associated tests): `functional.js`.
 This collects a very small set of functional utilities (compose, set...).
 
-### build
-Contains tools for build.js.
+### `build`
+Contains tools for `build.js`.
 
-### dev
+### `dev`
 Contains a template to hang the component onto in dev.
 
 ### Project root
