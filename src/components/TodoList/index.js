@@ -6,7 +6,7 @@ import TodoZero from '../TodoZero';
 import SwapButton from '../SwapButton';
 import styles from './style.css';
 
-/* eslint-disable no-undef */
+/* eslint-disable no-undef, no-unused-expressions, react/no-array-index-key */
 export const render = ({
   items = [],
   swapItems = () => {},
