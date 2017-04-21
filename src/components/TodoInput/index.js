@@ -12,9 +12,9 @@ export const render = ({
   deleteAll = () => {},
 }) => (
   <div class={styles.container}>
-    <IconButton onclick={markAllAsDone} disabled={noItems || undefined}><DoneAll /></IconButton>
-    <Input placeholder="Add todo" onInput={addItem} value="" />
-    <IconButton onclick={deleteAll} disabled={noItems || undefined}><DeleteSweep /></IconButton>
+    <IconButton onclick={markAllAsDone} disabled={noItems || undefined} label="Mark all as done"><DoneAll /></IconButton>
+    <Input placeholder="Add todo" onInput={addItem} value="" label="Add todo" />
+    <IconButton onclick={deleteAll} disabled={noItems || undefined} label="Delete all todos"><DeleteSweep /></IconButton>
   </div>
 );
 

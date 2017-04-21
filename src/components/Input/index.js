@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-expressions, no-param-reassign */
+/* eslint-disable no-unused-expressions, no-param-reassign, jsx-a11y/label-has-for */
 import view from 'thea';
 import classnames from 'classnames';
 
@@ -18,7 +18,7 @@ import makeFocusHandlers from './focusEvents';
 import makeInputHandlers from './inputEvents';
 import makeSetRef from './refs';
 
-export const render = ({ disabled, value, placeholder, onInput, state }) => {
+export const render = ({ label, disabled, value, placeholder, onInput, state }) => {
   const { valueChanged, isFocussed } = state;
   const { focus, blur } = makeFocusHandlers(state);
   const { accept, reject, handleInput, handleKeyDown } = makeInputHandlers(state, onInput);
@@ -29,19 +29,20 @@ export const render = ({ disabled, value, placeholder, onInput, state }) => {
       class={classnames(styles.container, isFocussed && styles.isFocussed)}
       ref={setRef('parent')} captureFocus={focus} captureBlur={blur}
     >
-      <span class={styles.inputcontainer}>
+      <label class={styles.inputcontainer}>
+        <span class={styles.visuallyHidden}>{label}</span>
         <ControlledInput
           type="text" class={styles.input} value={value} placeholder={placeholder}
           ref={setRef('input')} onkeydown={handleKeyDown} oninput={handleInput}
           disabled={disabled}
         />
-      </span>
+      </label>
       <branch>
         <if test={valueChanged}>
-          <IconButton label={'Accept'} onclick={accept} >
+          <IconButton label={'Accept change'} onclick={accept} >
             <Done />
           </IconButton>
-          <IconButton label={'Cancel'} onClick={reject} >
+          <IconButton label={'Cancel change'} onClick={reject} >
             <Clear />
           </IconButton>
         </if>

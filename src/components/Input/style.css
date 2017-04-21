@@ -44,3 +44,11 @@
 .input::placeholder {
   color: #888;
 }
+.visuallyHidden {
+  position: relative;
+  width: 1;
+  height: 1;
+  top: -100000px;
+  left: -100000px;
+  opacity: 0.001;
+}

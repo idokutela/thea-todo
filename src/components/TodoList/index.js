@@ -61,7 +61,7 @@ export const render = ({
        }, []);
 
   return (
-    <div class={styles.container}>
+    <div class={styles.container} aria-live="polite">
       <Input {...inputHandlers} noItems={!items.length} />
       <branch>
         <if test={items.length}>
