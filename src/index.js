@@ -5,6 +5,7 @@ import './style.css';
 export { TodoWidget as default } from 'components/TodoWidget';
 
 if (typeof document !== 'undefined') {
-  console.log('Mounting');
+  console.log('Live');
+  document.body.parentNode.removeAttribute('class');
   mountOnNode(document.getElementById('todoContainer'));
 }

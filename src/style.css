@@ -41,6 +41,10 @@ section {
   justify-content: flex-start;
 }
 
+:global .no-js #todoContainer {
+  opacity: 0.4;
+}
+
 :global .description {
   align-self: center;
   padding: 1.5rem 0;
