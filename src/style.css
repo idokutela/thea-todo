@@ -6,6 +6,7 @@ html {
   box-sizing: border-box;
 }
 body {
+  position: relative;
   margin: 0;
   padding: 0;
   display: flex;
@@ -41,8 +42,24 @@ section {
   justify-content: flex-start;
 }
 
+:global .noscript, :global .loading-message {
+  display: none;
+}
 :global .no-js #todoContainer {
   opacity: 0.4;
+}
+:global .no-js .noscript, :global .loading .loading-message {
+  display: block;
+}
+:global .loading-message {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  min-height: 3rem;
+  color: #fefefe;
+  background: #222;
+  padding: 0.75rem;
 }
 
 :global .description {

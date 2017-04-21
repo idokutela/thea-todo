@@ -37,9 +37,23 @@ module.exports = (outdir, js = 'app.js', css = 'app.css', github = GITHUB) => {
                   <p>
                      Go ahead, <a href="${github}">clone the repository</a>, take a look. You won’t regret it.
                   </p>
+                  <p class="noscript">
+                    Javascript seems not to be working. Please enable it to use the demo.
+                  </p>
                 </div>
               </section>
               <section id="todoContainer">${TodoWidget().toString()}</section>
+              <div class="loading-message">
+                <span>One moment while the script loads…</span>
+              </div>
+              <script type="text/javascript">
+                document.body.parentNode.removeAttribute('class');
+                function a() {
+                  document.body.parentNode.setAttribute('class', 'loading');
+                }
+                todoContainer.addEventListener('click', a, true);
+                todoContainer.addEventListener('focus', a, true);
+              </script>
               <script type="text/javascript" src="${js}"></script>
             </body>
           </html>
