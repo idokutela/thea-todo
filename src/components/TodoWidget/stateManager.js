@@ -41,9 +41,17 @@ export function makeStateUpdaters(update) {
     },
   );
   const markAllAsDone = () => update(
-    state => Object.assign(
-      {}, state, { items: state.items.map(x => Object.assign(x, { done: true })) },
-    ),
+    (state) => {
+      const allDone = state.items.reduce((r, i) => i.done && r, true);
+      if (allDone) {
+        return Object.assign(
+          {}, state, { items: state.items.map(x => Object.assign(x, { done: false })) },
+        );
+      }
+      return Object.assign(
+        {}, state, { items: state.items.map(x => Object.assign(x, { done: true })) },
+      );
+    },
   );
   const deleteAll = () => update(
     state => Object.assign(

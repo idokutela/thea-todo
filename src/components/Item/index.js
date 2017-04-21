@@ -15,12 +15,12 @@ export const render = ({
   <li class={styles.container}>
     <IconButton
       onClick={toggleDone}
-      label="Mark Todo as done"
+      label={done ? 'Uncheck todo' : 'Mark todo as done'}
       class={done ? styles.checked : styles.unchecked}
     >
       <Done />
     </IconButton>
-    <Input value={value} disabled={done || undefined} onInput={updateItem} label="Todo item" />
+    <Input value={value} disabled={done || undefined} onInput={updateItem} label="Todo itemV" />
     <IconButton
       onClick={deleteItem} class={styles.button} label="Delete Todo"
     >
